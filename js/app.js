@@ -35,12 +35,14 @@ function validateWord(word) {
     }
     
 }
+var word = prompt("Please enter a word to use in the game.");
+
 function playGame(word) {
 
-    validateWord(word);
-} //validateWord working
+	validateWord(word);
+}
 
-//playGame("banan1");
+playGame(word);
 
 
 
