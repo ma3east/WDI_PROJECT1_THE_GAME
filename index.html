@@ -11,7 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="./js/app.js" type="text/javascript"></script>
 	
 </head>
 <body>
@@ -24,28 +23,41 @@
 			Letters have used (left of pic)
 		</div>
 		<div class="input">
-			Possible area for input, then hidden? Use for something else?
+			<!-- Possible area for input, then hidden? Use for something else? -->
+			<p>Please specify the word to be used in the game to be guessed by your friends: <!-- <input type="password"  id="wordone" name="wordForGame" onchange="wordCheck()"></input> -->
+
+			</p>
+
+			<form id="wordSubmit">        
+				<input type="password" name="pass" id="pass" placeholder="Enter Secret Word" onchange="wordCheck()"/>
+				<br />
+				<input type="button" value="Submit" onclick="reset()" /> 
+				<!-- style="font-size:150%; margin-top:15px;"                 -->
+			</form>
+
+			
 		</div>
 		<div class="picture">
 			hangman picture area (right)
 		</div>
-
-		<div class="score">
-			<div>Scoreboard area (right of pic)</div>
-			<div>New Game, Clear Score buttons</div>
-		</div>
 	</main>
-
 	<section class="guess">
 		<div>
 			Guessing area (below pic)
 		</div>
+	</section>
+	<section class="score">
+		<div>Scoreboard area (right of pic)</div>
+		<div>New Game, Clear Score buttons</div>
 	</section>
 	<hr />
 	<footer>
 		<p>Contant Me:</p>
 		<p>Copyright: &copy info</p>
 	</footer>
+
+	<script src="./js/app.js" type="text/javascript"></script>
+
 
 </body>
 </html>
