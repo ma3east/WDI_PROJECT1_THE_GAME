@@ -23,4 +23,24 @@ var reset = function() {
 
 }// placeholder to reset/clear score and gamesPlayed back to 0.
 
+function validateWord(word) {
+
+    var regTest = /^[a-zA-Z]+$/.test(word);
+    var nonValidMsg = ("That is not a valid word or word length, please re-enter, minimum 3 letters.");
+    
+    if (regTest === true && word.length > 4) {
+        console.log("lets play " + word);
+    }else{
+      validateWord(prompt(nonValidMsg));
+    }
+    
+}
+function playGame(word) {
+
+    validateWord(word);
+} //validateWord working
+
+//playGame("banan1");
+
+
 
