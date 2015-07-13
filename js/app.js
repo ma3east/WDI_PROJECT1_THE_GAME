@@ -4,19 +4,18 @@
 
 var hangman = []; // container for hangman parts e.g. _, |, -, though if using something line html5 canvas? (more research needed), will just build.
 
-var word = "sunshine"; //just hard coding a word to test game, when ready will use a prompt or input from text/password field. Also want to verify is > 3 letters and only letters.
+var word = prompt("Please enter a word to use in the game.");
 
-var word2 = "banana"; // second word to test includes duplicate letters.
+//var word2 = "banana"; // second word to test includes duplicate letters.
 
 var alphaB = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; //may or may not need
 
 var score = 0;
 var gamesPlayed = 0; //total number of games played before a reset
-var guessedLetter = ""; // placeholder for letter guess
+var guessedLetter = prompt("Please enter a letter."); // placeholder for letter guess
 var match = true; // if match = false, push letter into used, and indicate incorrect and draw a piece of the hangman
 var usedLetters = []; // placeholder to display used letters on screen (after a guess)
-var wordGuessed = []; //if guess/match == true, then push into here at relevant position e.g. guess = s, s, _, _, s,_, _,_, _, _
-
+var wordGuessed = Array(word.length + 1).join('*').split(''); //if guess/match == true, then push into here at relevant position e.g. guess = s, s, _, _, s,_, _,_, _, _
 
 var reset = function() {
 
@@ -29,17 +28,51 @@ function validateWord(word) {
     var nonValidMsg = ("That is not a valid word or word length, please re-enter, minimum 3 letters.");
     
     if (regTest === true && word.length > 4) {
-        console.log("lets play " + word);
+        console.log("lets play with " + word);
     }else{
       validateWord(prompt(nonValidMsg));
     }
     
 }
-var word = prompt("Please enter a word to use in the game.");
+
+function welcome(){
+	
+	var greeting = console.log("Welcome to the hangman game, you are trying to guess a word of " + word.length + " letters.");
+
+	return (guessedLetter);
+}
+
+
+function isMatch (word){
+
+	var guessSearch = word.search(guessedLetter); //gives index of match letter
+	console.log(guessSearch);
+
+	if(guessSearch > -1){
+		// push into array for wordGuessed
+
+		console.log(guessedLetter + " correct guess");
+	} else {
+		console.log(guessedLetter + "was not a match");
+	}
+
+	return guessSearch;
+
+}
 
 function playGame(word) {
 
 	validateWord(word);
+
+	welcome();
+
+	isMatch(word);
+
+
+	// console.log(guessedLetter);
+	// console.log(guessSearch);
+
+	//console.log(word.length, wordGuessed);
 }
 
 playGame(word);
