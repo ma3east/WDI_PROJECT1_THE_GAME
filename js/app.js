@@ -7,7 +7,7 @@ var alphaB = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "
 var hangman = []; // container for hangman parts e.g. _, |, -, though if using something line html5 canvas? (more research needed), will just build.
 
 var word = prompt("Please enter a word to use in the game.");
-var wordSizeArray = Array(word.length + 1).join('*').split('');// number of * for each letter to guess
+var wordMatch = Array(word.length + 1).join('*').split('');// number of * for each letter to guess
 
 var guessedLetter = prompt("Please enter a letter."); // placeholder for letter guess
 var guessSearch = word.search(guessedLetter); //gives index of matched letter
@@ -46,30 +46,29 @@ function isMatch (guessedLetter){
 
 	if(guessSearch > -1){
 
-		letterPush = wordSizeArray.splice(guessSearch, 1, guessedLetter); //(index of guess, remove 1 *, added in the guessedLetter)
+		letterPush = wordMatch.splice(guessSearch, 1, guessedLetter); //(index of guess, remove 1 *, added in the guessedLetter)
 
 		usedLetters.push(guessedLetter);
 
 		console.log(guessedLetter + " correct guess");
-		console.log(wordSizeArray);
+		console.log(wordMatch);
 		
 	}else {
-		console.log(guessedLetter + " was not a match");
+		//console.log(guessedLetter + " was not a match");
 
 		usedLetters.push(guessedLetter);
 
 		return usedLetters;
 	}
 
-	return wordSizeArray, usedLetters;
+	return wordMatch, usedLetters;
 
 }
 
 function playGame(word) {
 
 	validateWord(word);
-
-	// welcome();
+	console.log(word);
 
 	isMatch(guessedLetter);
 
