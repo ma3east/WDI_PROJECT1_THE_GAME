@@ -15,12 +15,12 @@ var gamesPlayed = 0; //total number of games played before a reset
 var guessedLetter = prompt("Please enter a letter."); // placeholder for letter guess
 var match = true; // if match = false, push letter into used, and indicate incorrect and draw a piece of the hangman
 var usedLetters = []; // placeholder to display used letters on screen (after a guess)
-var wordGuessed = Array(word.length + 1).join('*').split(''); //if guess/match == true, then push into here at relevant position e.g. guess = s, s, _, _, s,_, _,_, _, _
 
-var reset = function() {
+var wordSizeArray = Array(word.length + 1).join('*').split(''); 
+
+//var wordGuessed = Array(word.length + 1).join('*').split(''); //if guess/match == true, then push into here at relevant position e.g. guess = s, s, _, _, s,_, _,_, _, _
 
 
-}// placeholder to reset/clear score and gamesPlayed back to 0.
 
 function validateWord(word) {
 
@@ -45,18 +45,23 @@ function welcome(){
 
 function isMatch (word){
 
-	var guessSearch = word.search(guessedLetter); //gives index of match letter
+	var guessSearch = word.search(guessedLetter); //gives index of matched letter
 	console.log(guessSearch);
+
+	var letterPush = wordSizeArray.splice(guessSearch, 1, guessedLetter); //(index of guess, remove 1 *, added in the guessedLetter)
 
 	if(guessSearch > -1){
 		// push into array for wordGuessed
 
+		//wordGuessed.push(guessedLetter);
+
 		console.log(guessedLetter + " correct guess");
+		console.log(wordSizeArray);
 	} else {
 		console.log(guessedLetter + "was not a match");
 	}
 
-	return guessSearch;
+	return wordSizeArray;
 
 }
 
@@ -67,15 +72,15 @@ function playGame(word) {
 	welcome();
 
 	isMatch(word);
-
-
-	// console.log(guessedLetter);
-	// console.log(guessSearch);
-
-	//console.log(word.length, wordGuessed);
 }
 
 playGame(word);
+
+
+var reset = function() {
+
+
+}// placeholder to reset/clear score and gamesPlayed back to 0.
 
 
 
