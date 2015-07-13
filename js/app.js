@@ -2,89 +2,93 @@
 
 //creating variables probably far to many but hey.
 
-var alphaB = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; //may or may not need
+var hangman = [], 
+		usedLetters = [],
+ 		word,
+		guessedLetter,
+		guessSearch,
+		score = 0,
+		gamesPlayed = 0;
 
-var hangman = []; // container for hangman parts e.g. _, |, -, though if using something line html5 canvas? (more research needed), will just build.
+//var word = $('#pass').val(); console.log(word);
+// var wordMatch = Array(word.length + 1).join('*').split('');// number of * for each letter to guess
 
-var word = prompt("Please enter a word to use in the game.");
-var wordMatch = Array(word.length + 1).join('*').split('');// number of * for each letter to guess
+// var guessedLetter = prompt("Please enter a letter."); // placeholder for letter guess
+// var guessSearch = word.search(guessedLetter); //gives index of matched letter
 
-var guessedLetter = prompt("Please enter a letter."); // placeholder for letter guess
-var guessSearch = word.search(guessedLetter); //gives index of matched letter
-
-
-var match = true; // if match = false, push letter into used, and indicate incorrect and draw a piece of the hangman
-var usedLetters = []; // placeholder to display used letters on screen (after a guess)
-var score = 0;
-var gamesPlayed = 0; //total number of games played before a reset
-
-
-function validateWord(word) {
-
+function validateWord() {
 	var regTest = /^[a-zA-Z]+$/.test(word);
 	var nonValidMsg = ("That is not a valid word or word length, please re-enter, minimum 3 letters.");
 
 	if (regTest === true && word.length > 4) {
-		console.log("lets play with " + word);
-	}else{
-		validateWord(prompt(nonValidMsg));
+		return true;
+	} else{
+		// validateWord(prompt(nonValidMsg));
+		return false;
 	}
-
 }
 
-function isMatch (guessedLetter){
+// will use to generate buttons on the page, or could just add to html direclty?
+function generateBtns(){
+
+	var alphaB = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; //may or may not need
+
+	var $buttonArea = $('.letters');
+}
+
+function generateGuessArea(){
+	// will populate section .guess with spaces that match length of the word
+}
+
+function indexesOf(guessedLetter) {
+	var count = 0;
+	var pos = word.indexOf(guessedLetter);
+
+	while (pos !== -1) {
+	  count++;
+	  pos = word.indexOf(guessedLetter, pos + 1);
+	}
+
+	return count;
+}
+
+function isMatch(guessedLetter){
 	var letterPush; // to push the guessed letter into the wordMatch array
-	var letterCount = 0;
-	var letterPosition = word.indexOf(guessedLetter); 
-
-	while (letterPosition !== -1){
-		letterCount++;
-		letterPosition = word.indexOf(guessedLetter, letterPosition +1);
-
-		//below was if guessSearch > - 1....	
-		if(letterPosition > -1){
-
-			letterPush = wordMatch.splice(guessSearch, 1, guessedLetter); //(index of guess, remove 1 *, added in the guessedLetter)
-
-			usedLetters.push(guessedLetter);
-
-			console.log(guessedLetter + " correct guess");
-			console.log(wordMatch);
-			
-		}else {
-			//console.log(guessedLetter + " was not a match");
-
-			usedLetters.push(guessedLetter);
-
-			return usedLetters;
+	var letterCount = indexesOf(guessedLetter); 
+	//to correct the number of guessed letters
+	var letterPosition; //= word.indexOf(guessedLetter); 
+	var wordMatch = Array(word.length + 1).join('*').split('');
+ 	usedLetters.push(guessedLetter);
+	
+	if (letterCount > 0) {
+		for (var i = 0; i < letterCount; i++) {
+			letterPosition = word.indexOf(guessedLetter, letterPosition + 1);
+			wordMatch.splice(letterPosition, 1, guessedLetter); 
 		}
-
-
 	}
 
-	
-
+	console.log(wordMatch);
 	return wordMatch, usedLetters;
-
 }
 
-function playGame(word) {
+function bindEvents(){
+	$('input[type=button]').on("click", playGame);
+}
 
-	validateWord(word);
-	console.log(word);
+function playGame() {
+	event.preventDefault();
+	word = $('#pass').val();
 
+	if (!validateWord()) {
+		// validateWord(prompt(nonValidMsg));
+		alert("not valid");
+	}
+
+	generateBtns();
+
+	var guessedLetter = prompt("Please enter a letter.");
 	isMatch(guessedLetter);
-
-	console.log(usedLetters);
+	// console.log(usedLetters);
 }
 
-playGame(word);
-
-
-var reset = function() {
-
-
-}// placeholder to reset/clear score and gamesPlayed back to 0.
-
-
-
+$(bindEvents);
