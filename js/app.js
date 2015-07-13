@@ -32,34 +32,37 @@ function validateWord(word) {
 
 }
 
-// function welcome(){
-	
-// 	var greeting = console.log("Welcome to the hangman game, you are trying to guess a word of " + word.length + " letters.");
-
-// 	//return (guessedLetter);
-// }
-
 function isMatch (guessedLetter){
-	var letterPush; 
+	var letterPush; // to push the guessed letter into the wordMatch array
+	var letterCount = 0;
+	var letterPosition = word.indexOf(guessedLetter); 
 
-	//console.log(guessSearch);
+	while (letterPosition !== -1){
+		letterCount++;
+		letterPosition = word.indexOf(guessedLetter, letterPosition +1);
 
-	if(guessSearch > -1){
+		//below was if guessSearch > - 1....	
+		if(letterPosition > -1){
 
-		letterPush = wordMatch.splice(guessSearch, 1, guessedLetter); //(index of guess, remove 1 *, added in the guessedLetter)
+			letterPush = wordMatch.splice(guessSearch, 1, guessedLetter); //(index of guess, remove 1 *, added in the guessedLetter)
 
-		usedLetters.push(guessedLetter);
+			usedLetters.push(guessedLetter);
 
-		console.log(guessedLetter + " correct guess");
-		console.log(wordMatch);
-		
-	}else {
-		//console.log(guessedLetter + " was not a match");
+			console.log(guessedLetter + " correct guess");
+			console.log(wordMatch);
+			
+		}else {
+			//console.log(guessedLetter + " was not a match");
 
-		usedLetters.push(guessedLetter);
+			usedLetters.push(guessedLetter);
 
-		return usedLetters;
+			return usedLetters;
+		}
+
+
 	}
+
+	
 
 	return wordMatch, usedLetters;
 
