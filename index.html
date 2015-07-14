@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HangMan Beta</title>
+	<title>HangMan</title>
 
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="./css/animate.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	
+	<script src="./js/app.js" type="text/javascript"></script>
 </head>
 <body>
 	<header>
-		<h1>Test header 1</h1>
+		<h1>Hang Man</h1>
 	</header>
 	<hr />
 	<main>
-		<div class="letters">
-			Letters have used from alphabet, used letters in diff color
-			
+		<section class="left_container">
+			<div class="word_input">
+				<p>Please specify the word to be used in the game to be guessed by your friends, then press submit:
+				</p>
+				<form>
+					<input type="password" name="pass" id="pass" placeholder="Enter Secret Word" />
+					<br />
+					<input type="button" value="Submit" />
+				</form>
+			</div>
+			<div>
+				<p id="guess_left">Guesses left: </p>
+			</div>
+		</section>
+		<section class="picture">
+			<canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
 
+		</section>
 
-
-			
-		</div>
-		<div class="input">
-			<!-- Possible area for input, then hidden? Use for something else? -->
-			<p>Please specify the word to be used in the game to be guessed by your friends: 
-			</p>
-
-			<form id="wordSubmit">        
-				<input type="password" name="pass" id="pass" placeholder="Enter Secret Word" />
-				<br />
-				<input type="button" value="Submit" /> 
-			</form>	
-		</div>
-		<div class="picture" id="canvas">
-			hangman picture area (right)
-		</div>
 	</main>
-	<section class="guess">
-		<div>
-			Guessing area (below pic)
-		</div>
+	<section>
+	
+	<div class="wrapper">
+
+
+		<div id="buttons"></div>  
+		<!-- <div id="hold">
+		</div> -->
+	</div>
 	</section>
-	<section class="score">
+	<section id="guessArea">
+	Click a letter to make your guesses.
+
+	</section>
+	<!-- <section class="score">
 		<div>Scoreboard area (right of pic)</div>
-		<div>New Game, Clear Score buttons</div>
-	</section>
+
+		<button id="reset">Play again</button>
+
+	</section> -->
 	<hr />
 	<footer>
 		<p>Contant Me:</p>
 		<p>Copyright: &copy info</p>
 	</footer>
-
-	<script src="./js/app.js" type="text/javascript"></script>
-
-
 </body>
+
 </html>

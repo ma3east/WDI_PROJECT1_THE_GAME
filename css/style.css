@@ -1,77 +1,229 @@
-/** {
-	
-	}*/
+body {
+	font-family:'Architects Daughter', cursive;
+	font-size: 120%;
+	color: red;
+	margin: 0 30px;
+	padding: 0;
+	height: 100%;
+	box-sizing: border-box;
+/*	background-color: #99CCFF;*/	
+	background-image: url("../images/stock-footage-panning-hangman-s-noose.jpg");
+}
 
-	body {
-		font-family: "Comic Sans MS", cursive, sans-serif; 
-		font-size: 100%;
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		background-color: red;
-	}
+header {
+	/*background-color: yellow;*/
+	width: 100%;
+	height: 80px;
+}
 
-	header	{
-		background-color: yellow;
-		width: 100%;
-		height:	60px;
-	}
-	h1	{
-		line-height: 60px;
-		margin: 0 auto;
-		text-align: center;
-	}
+h1 {
+	line-height: 80px;
+	font-size: 40px;
+	margin: 0 auto;
+	text-align: center;
+}
 
-	hr {
-		border: 0;
-		height: 2px;
-		background: black;
-	}
+hr {
+	border: 0;
+	height: 2px;
+	background: red;
+}
 
-	main {
-		background-color: pink;
-		border: 1px solid brown;
-		height: 600px;
-		display: flex;
-		margin: 0 auto;
-		width: 90%;
-		padding: 0;
-	}
-	input {
-		font-size: 100%;
-	}
+main {
+	height: 350px; 
+	display: flex;
+	margin: 0 auto;
+	padding: 0;
+}
 
-	.letters {
-		background-color: red;
-		border: 1px solid brown;
-		width: 20%;
-	}
+form {
+	font-size: 24px;
+	align: middle;
+}
 
-	.input {
-		background-color: yellow;
-		border: 1px solid brown;
-		width: 30%
-	}
+.left_container {
+	width: 400px;
+	height: 100%;
+}
 
-	.picture {
-		background-color: white;
-		border: 1px solid brown;
-		width: 50%;
-	}
+.left_container ul {
+	margin: 0 auto;
+	list-style-type: none;
+	width: 800px
+}
+div.letters {
+	width: 610px;
+	height: 400px;
+	text-align: center;
+}
 
-	.guess {
-		background-color: lightblue;
-		border: 1px solid brown;
-		height: 100px;
-	}
-	.score {
-		background-color: magenta;
-		border: 1px solid brown;
-		height: 100px;
-	}
+#alphabet {
+	margin: 15px auto;
+	padding: 0;
+	max-width: 900px;
+}
+#alphabet:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 
-	footer	{
-		background-color: green;
-		margin: 0 auto;
-		height: 100px;
+#alphabet li {
+	float: left;
+	margin: 0 10px 10px 0;
+	list-style: none;
+	width: 35px;
+	height: 30px;
+	padding-top: 10px;
+	background: #fff;
+	color: magenta;
+	cursor: pointer;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border: solid 1px #fff;
+}
+#alphabet li:hover {
+	background: #c1d72e;
+	border: solid 1px #fff;
+	color: #fff;
+}
+#buttons {
+	display: flex;
+}
+
+button {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-khtml-border-radius: 5px;
+	background: #c1d72e;
+	color: #fff;
+	border: solid 1px #fff;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 1.2em;
+	padding: 18px 10px;
+	width: 180px;
+	margin: 10px;
+	outline: none;
+}
+button:hover {
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	background: #fff;
+	border: solid 1px #fff;
+	color: #c1d72e;
+}	
+
+.word_input {
+	/*background-color: yellow;*/
+	padding: 10px;
+	text-align: center;
+}
+p {
+	text-align: center;
+	padding: 15px;
+}
+
+.picture {
+	background-color: #f7f7f7;
+	width: 815px;
+}
+
+.guess_left {
+	height: 100px;
+	width: 100px;
+}
+
+#guessArea {
+	/*background-color: lightblue;*/
+	height: 100px;
+	text-align: center;
+}
+
+#myWord {
+	margin: 0;
+	padding: 0;
+	display:block;
+}
+
+#myWord li {
+	position: relative;
+	list-style: none;
+	margin: 0;
+	display: inline-block;
+	padding: 0 10px;
+	font-size:2em;
+}
+
+.active {
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	-moz-transition: all 1s ease-in;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	cursor: default;
+}
+
+#stickman {
+	height: 350px;
+	/*background-color: green;*/
+	padding: 0;
+	width: 815px;
+}
+
+/*.score {
+	background-color: magenta;
+	border: 1px solid brown;
+	height: 100px;
+}*/
+
+footer {
+	margin: 0 auto;
+	height: 100px;
+	text-align: center;
+}
+
+canvas {
+	/*color: #fff;*/
+	padding: 15px;
+}
+
+.wrappper {
+	/*width: 100%;*/
+	margin: 0 auto;
+	background-color: purple;
+	/*clear: both;*/
+}
+.wrappper:after {
+	content: "";
+	/*display: table;*/
+	clear: both;
+	background-color: lilac;
+}
+
+/*start of media queries*/
+
+@media (max-width: 767px) {
+	#alphabet {
+		padding: 0 0 0 15px;
 	}
+}
+@media (max-width: 480px) {
+	#alphabet {
+		padding: 0 0 0 25px;
+	}
+}
+
+	/*button {
+		background-color: bisque;
+		margin: 5px;
+		list-style: none;
+		width: 50px;
+		height: 25px;
+		background: lightcoral;
+		border: 1px brown solid;
+		}*/
