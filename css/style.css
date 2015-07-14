@@ -6,13 +6,12 @@ body {
 	padding: 0;
 	height: 100%;
 	box-sizing: border-box;
-/*	background-color: #99CCFF;*/	
+	background-color: black;	
 	background-image: url("../images/stock-footage-panning-hangman-s-noose.jpg");
 	background-size: contain;
 }
 
 header {
-	/*background-color: yellow;*/
 	width: 100%;
 	height: 80px;
 }
@@ -29,6 +28,10 @@ hr {
 	height: 2px;
 	background: white;
 }
+h3 {
+	text-align: center;
+	color: white;
+}
 
 a {
 	color: white;
@@ -36,15 +39,13 @@ a {
 
 main {
 	height: 350px; 
+	display: -webkit-flex; 
+	display: -ms-flexbox; 
 	display: flex;
 	margin: 0 auto;
 	padding: 0;
 }
 
-form {
-	font-size: 24px;
-	align: middle;
-}
 
 .left_container {
 	width: 400px;
@@ -78,8 +79,6 @@ div.letters {
 	background: #fff;
 	color: red;
 	cursor: pointer;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	-khtml-border-radius: 5px;
 	border: solid 1px #fff;
@@ -87,14 +86,12 @@ div.letters {
 	font-weight: bolder;
 }
 #alphabet li:hover {
-	background: #c1d72e;
+	background: #ff6666; /*#c1d72e*/
 	border: solid 1px #fff;
 	color: #fff;
 }
 
 button {
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	-khtml-border-radius: 5px;
 	background: #c1d72e;
@@ -109,14 +106,19 @@ button {
 	outline: none;
 }
 button:hover {
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	background: #fff;
 	border: solid 1px #fff;
 	color: #c1d72e;
 }	
+form {
+	font-size: 24px;
+}
 
+input {
+	text-align: center;
+	
+}
 .word_input {
 	padding: 5px;
 	text-align: center;
@@ -140,7 +142,6 @@ p {
 }
 
 #guessArea {
-	/*background-color: lightblue;*/
 	height: 100px;
 	text-align: center;
 	font-size: 28px;
@@ -171,9 +172,9 @@ p {
 }
 
 #stickman {
-	height: 350px;
-	/*background-color: green;*/
-	padding: 0;
+	height: 330px;
+	padding-left: 0;
+	padding-bottom: 0;
 	width: 815px;
 }
 
@@ -181,50 +182,37 @@ p {
 	background-color: magenta;
 	border: 1px solid brown;
 	height: 100px;
-}*/
+	}*/
 
-footer {
-	margin: 0 auto;
-	height: 100px;
-	text-align: center;
-}
-
-canvas {
-	/*color: #fff;*/
-	padding: 15px;
-}
-
-.wrappper {
-	/*width: 100%;*/
-	margin: 0 auto;
-	background-color: purple;
-	/*clear: both;*/
-}
-.wrappper:after {
-	content: "";
-	/*display: table;*/
-	clear: both;
-}
-
-/*start of media queries*/
-
-@media (max-width: 767px) {
-	#alphabet {
-		padding: 0 0 0 15px;
+	footer {
+		margin: 0 auto;
+		height: 100px;
+		text-align: center;
 	}
-}
-@media (max-width: 480px) {
-	#alphabet {
-		padding: 0 0 0 25px;
-	}
-}
 
-	/*button {
-		background-color: bisque;
-		margin: 5px;
-		list-style: none;
-		width: 50px;
-		height: 25px;
-		background: lightcoral;
-		border: 1px brown solid;
-		}*/
+	canvas {
+		padding: 20px;
+	}
+
+	.wrappper {
+		margin: 0 auto;
+		background-color: purple;
+	}
+	.wrappper:after {
+		content: "";
+		clear: both;
+	}
+
+	/*start of media queries*/
+
+	@media (max-width: 767px) {
+		#alphabet {
+			padding: 0 0 0 15px;
+		}
+	}
+	@media (max-width: 480px) {
+		#alphabet {
+			padding: 0 0 0 25px;
+		}
+	}
+
