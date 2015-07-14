@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>HangMan Beta Test 2</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="./css/test.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="./js/test.js" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+	<header>
+		<h1>Hang Man</h1>
+	</header>
+	<hr />
+	<main>
+		<section class="left_container">
+			<div class="word_input">
+				<!-- Possible area for input, then hidden? Use for something else? -->
+				<p>Please specify the word to be used in the game to be guessed by your friends:
+				</p>
+				<form>
+					<input type="password" name="pass" id="pass" placeholder="Enter Secret Word" />
+					<br />
+					<input type="button" value="Submit" />
+				</form>
+			</div>
+
+			<div class="letters">
+				<!--			Letters have used from alphabet, used letters in diff color-->
+				<p>Choose from the alphabet: </p>
+				<ul>
+					<button id="a">A</button>
+					<button id="b">B</button>
+					<button id="c">C</button>
+					<button id="d">D</button>
+					<button id="e">E</button>
+					<button id="f">F</button>
+				</ul>
+				<ul>
+					<button id="g">G</button>
+					<button id="h">H</button>
+					<button id="i">I</button>
+					<button id="j">J</button>
+					<button id="k">K</button>
+					<button id="l">L</button>
+				</ul>
+				<ul>
+					<button id="m">M</button>
+					<button id="n">N</button>
+					<button id="o">O</button>
+					<button id="p">P</button>
+					<button id="q">Q</button>
+					<button id="r">R</button>
+
+				</ul>
+				<ul>
+					<button id="s">S</button>
+					<button id="t">T</button>
+					<button id="u">U</button>
+					<button id="u">V</button>
+					<button id="w">W</button>
+					<button id="x">X</button>
+				</ul>
+				<ul>
+					<button id="y">Y</button>
+					<button id="z">Z</button>
+				</ul>
+			</div>
+
+		</section>
+		<section class="picture">
+			<canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+			<div>
+				<p id="guess_left">Guesses left: </p>
+			</div>
+
+		</section>
+	</main>
+	<section id="guessArea">
+		<div>
+			Guessing area
+		</div>
+	</section>
+	<section class="score">
+		<div>Scoreboard area (right of pic)</div>
+		<div>New Game, Clear Score buttons</div>
+	</section>
+	<hr />
+	<footer>
+		<p>Contant Me:</p>
+		<p>Copyright: &copy info</p>
+	</footer>
+
+
+</body>
+
+</html>

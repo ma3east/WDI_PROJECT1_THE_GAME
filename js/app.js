@@ -56,7 +56,7 @@ function isMatch(guessedLetter){
 	var letterPush; // to push the guessed letter into the wordMatch array
 	var letterCount = indexesOf(guessedLetter); 
 	//to correct the number of guessed letters
-	var letterPosition; //= word.indexOf(guessedLetter); 
+	var letterPosition;
 	var wordMatch = Array(word.length + 1).join('*').split('');
  	usedLetters.push(guessedLetter);
 	
@@ -71,6 +71,18 @@ function isMatch(guessedLetter){
 	return wordMatch, usedLetters;
 }
 
+// var $canvas = $('#canvas');
+// function drawCanvas(){
+
+// 	if( letterCount < 0 ){
+// 		var ctx = canvas.getContext("2d");
+// 		ctx.fillStyle = "#FF0000";
+// 		ctx.fillRect(0,0,150,75);
+
+// 	}
+	
+// };
+
 function bindEvents(){
 	$('input[type=button]').on("click", playGame);
 }
@@ -79,9 +91,9 @@ function playGame() {
 	event.preventDefault();
 	word = $('#pass').val();
 
-	if (!validateWord()) {
-		// validateWord(prompt(nonValidMsg));
-		alert("not valid");
+	if ( !validateWord() ) {
+		//alert("not valid");
+		return false;
 	}
 
 	generateBtns();
