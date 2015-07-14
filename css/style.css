@@ -8,6 +8,7 @@ body {
 	box-sizing: border-box;
 /*	background-color: #99CCFF;*/	
 	background-image: url("../images/stock-footage-panning-hangman-s-noose.jpg");
+	background-size: contain;
 }
 
 header {
@@ -129,7 +130,7 @@ p {
 }
 
 .picture {
-	background-color: #f7f7f7;
+	/*background-color: #f7f7f7; color for canvas */
 	width: 815px;
 }
 
@@ -203,7 +204,6 @@ canvas {
 	content: "";
 	/*display: table;*/
 	clear: both;
-	background-color: lilac;
 }
 
 /*start of media queries*/
