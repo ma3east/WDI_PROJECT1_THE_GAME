@@ -1,6 +1,6 @@
 body {
 	font-family:'Architects Daughter', cursive;
-	font-size: 120%;
+	font-size: 100%;
 	color: red;
 	margin: 0 30px;
 	padding: 0;
@@ -18,7 +18,7 @@ header {
 
 h1 {
 	line-height: 80px;
-	font-size: 40px;
+	font-size: 60px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -26,7 +26,11 @@ h1 {
 hr {
 	border: 0;
 	height: 2px;
-	background: red;
+	background: white;
+}
+
+a {
+	color: white;
 }
 
 main {
@@ -46,11 +50,6 @@ form {
 	height: 100%;
 }
 
-.left_container ul {
-	margin: 0 auto;
-	list-style-type: none;
-	width: 800px
-}
 div.letters {
 	width: 610px;
 	height: 400px;
@@ -60,7 +59,7 @@ div.letters {
 #alphabet {
 	margin: 15px auto;
 	padding: 0;
-	max-width: 900px;
+	max-width: 1000px;
 }
 #alphabet:after {
 	content: "";
@@ -76,21 +75,20 @@ div.letters {
 	height: 30px;
 	padding-top: 10px;
 	background: #fff;
-	color: magenta;
+	color: red;
 	cursor: pointer;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	-khtml-border-radius: 5px;
 	border: solid 1px #fff;
+	text-align: center;
+	font-weight: bolder;
 }
 #alphabet li:hover {
 	background: #c1d72e;
 	border: solid 1px #fff;
 	color: #fff;
-}
-#buttons {
-	display: flex;
 }
 
 button {
@@ -119,13 +117,15 @@ button:hover {
 }	
 
 .word_input {
-	/*background-color: yellow;*/
-	padding: 10px;
+	padding: 5px;
 	text-align: center;
 }
 p {
 	text-align: center;
-	padding: 15px;
+	font-size: 24px;
+}
+#guess_left {
+	font-size: 32px;
 }
 
 .picture {
@@ -142,6 +142,7 @@ p {
 	/*background-color: lightblue;*/
 	height: 100px;
 	text-align: center;
+	font-size: 28px;
 }
 
 #myWord {

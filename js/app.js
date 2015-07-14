@@ -79,7 +79,7 @@ comments = function () {
    	myStickman = document.getElementById("stickman");
    	context = myStickman.getContext('2d');
    	context.beginPath();
-   	context.strokeStyle = "#fff";
+   	context.strokeStyle = "red"; //was #fff
    	context.lineWidth = 2;
    };
 
@@ -99,7 +99,7 @@ comments = function () {
    }
 
    frame1 = function() {
-   	draw (0, 150, 150, 150);
+   	draw (0, 140, 140, 140); //draw (0, 150, 150, 150)
    };
    
    frame2 = function() {
@@ -168,6 +168,7 @@ comments = function () {
    	event.preventDefault() 
 
    	word = $('#pass').val();
+      word = word.toLowerCase();
    	console.log(word);
    	guesses = [];
    	lives = 10;
