@@ -1,106 +1,185 @@
-/*setting up basic structure for js, will try to get basic game working using console and prompts/alerts etc, once done then will convert to update/manipulate HTML, well that is the plan!*/
 
-//creating variables probably far to many but hey.
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+'t', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-var hangman = [], 
-		usedLetters = [],
- 		word,
-		guessedLetter,
-		guessSearch,
-		score = 0,
-		gamesPlayed = 0;
+var word,
+space,
+guess,
+guesses = [],
+lives,
+counter; 
 
-//var word = $('#pass').val(); console.log(word);
-// var wordMatch = Array(word.length + 1).join('*').split('');// number of * for each letter to guess
+var buttons = function(element) {
 
-// var guessedLetter = prompt("Please enter a letter."); // placeholder for letter guess
-// var guessSearch = word.search(guessedLetter); //gives index of matched letter
+	myButtons = document.getElementById('buttons');
+	letters = document.createElement('ul');
 
-function validateWord() {
-	var regTest = /^[a-zA-Z]+$/.test(word);
-	var nonValidMsg = ("That is not a valid word or word length, please re-enter, minimum 3 letters.");
-
-	if (regTest === true && word.length > 4) {
-		return true;
-	} else{
-		// validateWord(prompt(nonValidMsg));
-		return false;
+	for (var i = 0; i < alphabet.length; i++) {
+		letters.id = 'alphabet';
+		list = document.createElement('li');
+		list.id = 'letter';
+		list.innerHTML = alphabet[i];
+		check();
+		myButtons.appendChild(letters);
+		letters.appendChild(list);
 	}
 }
 
-// will use to generate buttons on the page, or could just add to html direclty?
-function generateBtns(){
+// populate area for guess with - for amount of letters
+function generateGuessArea() {
+	wordHolder = document.getElementById('guessArea');
+	correct = document.createElement('ul');
 
-	var alphaB = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; //may or may not need
 
-	var $buttonArea = $('.letters');
-}
+	for (var i = 0; i < word.length; i++) {
+		correct.setAttribute('id', 'myWord');
+		guess = document.createElement('li');
+		guess.setAttribute('class', 'guess');
+		if (word[i] === "-") {
+			guess.innerHTML = "-";
+			space = 1;
+		} else {
+			guess.innerHTML = "_";
+		}
 
-function generateGuessArea(){
-	// will populate section .guess with spaces that match length of the word
-}
+		guesses.push(guess);
+		wordHolder.appendChild(correct);
+		correct.appendChild(guess);
 
-function indexesOf(guessedLetter) {
-	var count = 0;
-	var pos = word.indexOf(guessedLetter);
-
-	while (pos !== -1) {
-	  count++;
-	  pos = word.indexOf(guessedLetter, pos + 1);
 	}
 
-	return count;
 }
 
-function isMatch(guessedLetter){
-	var letterPush; // to push the guessed letter into the wordMatch array
-	var letterCount = indexesOf(guessedLetter); 
-	//to correct the number of guessed letters
-	var letterPosition;
-	var wordMatch = Array(word.length + 1).join('*').split('');
- 	usedLetters.push(guessedLetter);
-	
-	if (letterCount > 0) {
-		for (var i = 0; i < letterCount; i++) {
-			letterPosition = word.indexOf(guessedLetter, letterPosition + 1);
-			wordMatch.splice(letterPosition, 1, guessedLetter); 
+// Show lives/guesses left
+comments = function () {
+	var showLives = document.getElementById("guess_left");
+
+	showLives.innerHTML = "You have " + lives + " guesses left"; 
+	if (lives < 1) {
+		showLives.innerHTML = "Game Over";
+	}
+	for (var i = 0; i < guesses.length; i++) {
+		if (counter + space === guesses.length) {
+			showLives.innerHTML = "You Win!";
 		}
 	}
+};
 
-	console.log(wordMatch);
-	return wordMatch, usedLetters;
-}
+// beginning of drawing section to draw parts of hangman depending on lives	 
+  // Animate man
+  var animate = function () {
+  	var drawMe = lives ;
+  	drawArray[drawMe]();
+  }
 
-// var $canvas = $('#canvas');
-// function drawCanvas(){
+   // Hangman
+   canvas =  function(){
 
-// 	if( letterCount < 0 ){
-// 		var ctx = canvas.getContext("2d");
-// 		ctx.fillStyle = "#FF0000";
-// 		ctx.fillRect(0,0,150,75);
+   	myStickman = document.getElementById("stickman");
+   	context = myStickman.getContext('2d');
+   	context.beginPath();
+   	context.strokeStyle = "#fff";
+   	context.lineWidth = 2;
+   };
 
-// 	}
-	
-// };
+   head = function(){
+   	myStickman = document.getElementById("stickman");
+   	context = myStickman.getContext('2d');
+   	context.beginPath();
+   	context.arc(60, 25, 10, 0, Math.PI*2, true);
+   	context.stroke();
+   }
 
-function bindEvents(){
-	$('input[type=button]').on("click", playGame);
-}
+   draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
 
-function playGame() {
-	event.preventDefault();
-	word = $('#pass').val();
+   	context.moveTo($pathFromx, $pathFromy);
+   	context.lineTo($pathTox, $pathToy);
+   	context.stroke(); 
+   }
 
-	if ( !validateWord() ) {
-		//alert("not valid");
-		return false;
-	}
+   frame1 = function() {
+   	draw (0, 150, 150, 150);
+   };
+   
+   frame2 = function() {
+   	draw (10, 0, 10, 600);
+   };
 
-	generateBtns();
+   frame3 = function() {
+   	draw (0, 5, 70, 5);
+   };
 
-	var guessedLetter = prompt("Please enter a letter.");
-	isMatch(guessedLetter);
-	// console.log(usedLetters);
-}
+   frame4 = function() {
+   	draw (60, 5, 60, 15);
+   };
 
-$(bindEvents);
+   torso = function() {
+   	draw (60, 36, 60, 70);
+   };
+
+   rightArm = function() {
+   	draw (60, 46, 100, 50);
+   };
+
+   leftArm = function() {
+   	draw (60, 46, 20, 50);
+   };
+
+   rightLeg = function() {
+   	draw (60, 70, 100, 100);
+   };
+
+   leftLeg = function() {
+   	draw (60, 70, 20, 100);
+   };
+
+   drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1];
+
+
+   check = function () {
+   	list.onclick = function () {
+   		var guess = (this.innerHTML);
+   		this.setAttribute("class", "active");
+   		this.onclick = null;
+   		for (var i = 0; i < word.length; i++) {
+   			if (word[i] === guess) {
+   				guesses[i].innerHTML = guess;
+   				counter += 1;
+   			}
+   		};
+   		var j = (word.indexOf(guess));
+   		if (j === -1) {
+   			lives -= 1;
+   			comments();
+   			animate();
+   		} else {
+   			comments();
+   		}
+   	}
+   };
+
+   function bindEvents() {
+   	$('input[type=button]').on("click", playGame);
+
+   }
+
+   function playGame() {
+   	event.preventDefault() 
+
+   	word = $('#pass').val();
+   	console.log(word);
+   	guesses = [];
+   	lives = 10;
+   	counter = 0;
+   	space = 0;
+   	generateGuessArea();
+   	comments();
+   	buttons();
+   	canvas();
+   }
+
+   $(bindEvents);
+
+
+
