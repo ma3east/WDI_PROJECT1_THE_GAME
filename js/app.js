@@ -180,29 +180,7 @@ comments = function () {
    	buttons();
    	canvas();
 
-
 }
-
-// $('reset').onclick = function() {
-//     correct.parentNode.removeChild(correct);
-//     letters.parentNode.removeChild(letters);
-//     context.clearRect(0, 0, 400, 400);
-//     play();
-//   }
-
-   //    // Reset
-
-   //      document.getElementById('reset').onclick = function() {
-   //        correct.parentNode.removeChild(correct);
-   //        letters.parentNode.removeChild(letters);
-   //        showClue.innerHTML = "";
-   //        context.clearRect(0, 0, 400, 400);
-   //        play();
-   //      }
-   //    }
-   // }
-
-
 
    $(bindEvents);
 
