@@ -1,5 +1,3 @@
-//this file works
-
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -31,7 +29,6 @@ var buttons = function(element) {
 function generateGuessArea() {
 	wordHolder = document.getElementById('guessArea');
 	correct = document.createElement('ul');
-
 
 	for (var i = 0; i < word.length; i++) {
 		correct.setAttribute('id', 'myWord');
@@ -73,7 +70,6 @@ comments = function () {
   	var drawMe = lives ;
   	drawArray[drawMe]();
   }
-
    // Hangman
    canvas =  function(){
 
@@ -100,7 +96,7 @@ comments = function () {
    }
 
    frame1 = function() {
-   	draw (0, 140, 140, 140); //draw (0, 150, 150, 150)
+   	draw (0, 140, 140, 140);
    };
    
    frame2 = function() {
@@ -137,7 +133,6 @@ comments = function () {
 
    drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1];
 
-
    check = function () {
    	list.onclick = function () {
    		var guess = (this.innerHTML);
@@ -170,19 +165,18 @@ comments = function () {
 
    	word = $('#pass').val();
       word =word.toLowerCase();
-   	console.log(word);
-   	guesses = [];
-   	lives = 10;
-   	counter = 0;
-   	space = 0;
-   	generateGuessArea();
-   	comments();
-   	buttons();
-   	canvas();
+      console.log(word);
+      guesses = [];
+      lives = 10;
+      counter = 0;
+      space = 0;
+      generateGuessArea();
+      comments();
+      buttons();
+      canvas();
 
-}
+   }
 
    $(bindEvents);
-
 
 
