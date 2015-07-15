@@ -1,23 +1,37 @@
-# WDI_PROJECT1_THE_GAME
-Creating a Hangman type game
+# WDI PROJECT 1 - THE GAME
 
-Hang Person is a simple word guess gaming that can be played with friends. (This game is still in beta).
+### Creating a Hangman type game
+
+**Hang Person** is a simple word guessing gaming that can be played with friends, it has a dark theme based on the dark arts. (This game is still in beta).
 
 The idea of the game is simple, guess the word before you end up feeling the **noose!**.
 
-Open source code bases were used to assist with this project.
+**A link to the game:** https://hang-person.herokuapp.com/
 
 The home page of the game:
 <img src="./images/Hang_Person_home_page.png">
 
-Image copyrights remain with their owners.
+*Image copyrights remain with their owners.*
 Grim Reaper - http://cupegraf.com/428114-grim-reaper.html
 
-Background - http://ak6.picdn.net/shutterstock/videos/1830875/preview/stock-footage-panning-hangman-s-noose.jpg
+Background Image - http://ak6.picdn.net/shutterstock/videos/1830875/preview/stock-footage-panning-hangman-s-noose.jpg
 
-Technologies used: HTML, CSS, JAVASCRIPT.
+Open source code bases were used to assist with this project.
 
-A link to the game: https://hang-person.herokuapp.com/
+**Technologies used: **
+HTML, CSS, JAVASCRIPT
+
+Most of the could is just pure HTML, CSS and Javascript, a google font (Architects+Daughter) was used, and normalize.css was used to standardize the css across browsers.  There is a little jQuery use as well.
+
+**Problems and what Next**
+
+I found it challenging coming up with the functionality of the game in code, as opposed to my head.
+Styling the game was interesting, especially as some elements could not been seen until certain actions had happened.
+
+* Would like to improve the game by displaying various images when selecting the letters.
+* Make it mobile responsive.
+
+
 
 Made with ❤️ l . o . v . e by me :)
 
