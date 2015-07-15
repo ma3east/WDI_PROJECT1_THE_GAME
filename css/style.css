@@ -127,6 +127,12 @@ p {
 	text-align: center;
 	font-size: 24px;
 }
+.welcome {
+	width: 250px;
+	float: right
+
+}
+
 #guess_left {
 	font-size: 32px;
 }
@@ -175,7 +181,8 @@ p {
 	height: 330px;
 	padding-left: 0;
 	padding-bottom: 0;
-	width: 815px;
+	width:	545px;
+	/*width: 815px;*/
 }
 
 /*.score {
@@ -209,10 +216,35 @@ p {
 		#alphabet {
 			padding: 0 0 0 15px;
 		}
+		h1 {
+			font-size: 30px;
+		}
+		h3 {
+			font-size: 16px;	
+		}
+		.welcome {
+			display: none;
+		}
+		.left_container {
+			width: 200px;
+		}
 	}
 	@media (max-width: 480px) {
 		#alphabet {
 			padding: 0 0 0 25px;
 		}
+		h1 {
+			font-size: 30px;
+		}
+		h3 {
+			font-size: 16px;	
+		}
+		.welcome {
+			display: none;
+		}
+		.left_container {
+			width: 200px;
+		}		
 	}
+
 
