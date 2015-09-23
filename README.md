@@ -35,7 +35,7 @@ Styling the game was interesting, especially as some elements could not been see
 * Make it mobile responsive.
 
 
-Made with ❤️ l . o . v . e by me :)
+Made with <span style="color:red;">&hearts;</span> l . o . v . e by me :)
 
 
 
