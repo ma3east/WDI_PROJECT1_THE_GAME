@@ -129,7 +129,6 @@ p {
 .welcome {
 	width: 250px;
 	float: right
-
 }
 
 #guess_left {
@@ -139,7 +138,8 @@ p {
 .picture {
 	/*color for canvas */
 	width: 815px;
-	background-image: url("../images/grim.jpeg");
+	/*background-image: url("../images/grim.jpeg");*/
+	background-image: url("../images/Grim_Reaper_red_eyes_T.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -183,9 +183,10 @@ p {
 
 #stickman {
 	height: 330px;
+	padding-right: 0;
 	padding-left: 0;
 	padding-bottom: 0;
-	width:	545px;
+	width:	485px;
 }
 	footer {
 		margin: 0 auto;
